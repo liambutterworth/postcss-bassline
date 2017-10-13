@@ -57,10 +57,10 @@ module.exports = postcss.plugin( 'bassline', function( options ) {
 					// split the declaration value using the bassline method names as delimiter
 					var valueSegments = decl.value.split( regexSplit );
 
-					// iterate over the value array and compile output for bassline methods
+					// iterate over the value segments and compile output for bassline methods
 					var compiledSegments = valueSegments.map( function( segment ) {
 
-						// test value segment for bassline methods
+						// test value segment for bassline method
 						if ( regexTest.test( segment ) ) {
 
 							// get the method name from segment, e.g. "lines" in "lines( 16, 1px )"
@@ -70,7 +70,7 @@ module.exports = postcss.plugin( 'bassline', function( options ) {
 							var params = getParams( segment );
 
 							// call the method using the parameter array; ensure 'this' is it's parent object
-							return method.apply( verticalRhythm, getParams( segment ) );
+							return method.apply( verticalRhythm, params );
 						}
 					} );
 
