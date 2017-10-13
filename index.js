@@ -41,17 +41,15 @@ module.exports = postcss.plugin( 'bassline', function( options ) {
 		css.walkRules( function( rule ) {
 			rule.walkDecls( function( decl, i ) {
 
-				// get an array of all method names with escaped regex characters
-				var methodNames = getMethodNames( verticalRhythm ).map( function( methodName ) {
-					return escapeRegex( methodName );
-				} );
+				// get an array of all custom bassline method names
+				var methodNames = getMethodNames( verticalRhythm );
 
 				// regular expression for testing declaration for bassline methods
-				var regexTest  = new RegExp( methodNames.join( '|' ), 'g' );
+				var regexTest = new RegExp( escapeRegex( methodNames.join( '|' ) ), 'g' );
 
 				// regular expression for splitting a declaration string; the delimiter being any
 				// custom bassline method names through the closing parenthesis, e.g. "lines( 16, 1px )"
-				var regexSplit = new RegExp( "((?:" + methodNames.join( '|' ) + ")\\(.*?\\))", 'g' );
+				var regexSplit = new RegExp( "((?:" + escapeRegex( methodNames.join( '|' ) ) + ")\\(.*?\\))", 'g' );
 
 				// test entire declaration value for any instance of a bassline method name
 				if ( regexTest.test( decl.value ) ) {
@@ -72,7 +70,7 @@ module.exports = postcss.plugin( 'bassline', function( options ) {
 							var params = getParams( segment );
 
 							// call the method using the parameter array; ensure 'this' is it's parent object
-							return method.apply( verticalRhythm, getParams( value ) );
+							return method.apply( verticalRhythm, getParams( segment ) );
 						}
 					} );
 
