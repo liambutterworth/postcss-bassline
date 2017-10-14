@@ -23,10 +23,7 @@ module.exports = postcss.plugin( 'bassline', function( options ) {
 
 	// get parameter array from a function call within a string, e.g. [16, 1px] in "lines( 16, 1px )"
 	function getParams( string ) {
-		return string.match( /\(([^)]+)\)/ )[1]
-			.replace( /["'\s]/g, "" )
-			.trim()
-			.split( ',' );
+		return string.match( /\(([^)]+)\)/ )[1].replace( /["'\s]/g, '' ).trim().split( /,\s?/ );
 	}
 
 	return function( css ) {
@@ -44,7 +41,7 @@ module.exports = postcss.plugin( 'bassline', function( options ) {
 
 				// regular expression for splitting a declaration string; the delimiter being any
 				// custom bassline method names through the closing parenthesis, e.g. "lines( 16, 1px )"
-				var regexSplit = new RegExp( "((?:" + regexMethodNames + ")\\(.*?\\))", 'g' );
+				var regexSplit = new RegExp( `((?:${ regexMethodNames })\\(.*?\\))`, 'g' );
 
 				// test entire declaration value for any instance of a bassline method name
 				if ( regexTest.test( decl.value ) ) {
