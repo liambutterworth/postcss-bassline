@@ -21,11 +21,6 @@ module.exports = postcss.plugin( 'bassline', function( options ) {
 		return methodNames;
 	}
 
-	// add escapes for special regex characters in the string
-	function escapeRegex( string ) {
-		return string.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
-	}
-
 	// get parameter array from a function call within a string, e.g. [16, 1px] in "lines( 16, 1px )"
 	function getParams( string ) {
 		return string.match( /\(([^)]+)\)/ )[1]
@@ -41,20 +36,20 @@ module.exports = postcss.plugin( 'bassline', function( options ) {
 		css.walkRules( function( rule ) {
 			rule.walkDecls( function( decl, i ) {
 
-				// get an array of all custom bassline method names
-				var methodNames = getMethodNames( verticalRhythm );
+				// generate a string of method names to use in regular expressions, e.g. font\-size|line\-height
+				var regexMethodNames = getMethodNames( verticalRhythm ).join( '|' ).replace( /\-/g, "\\$&" );
 
 				// regular expression for testing declaration for bassline methods
-				var regexTest = new RegExp( escapeRegex( methodNames.join( '|' ) ), 'g' );
+				var regexTest = new RegExp( regexMethodNames, 'g' );
 
 				// regular expression for splitting a declaration string; the delimiter being any
 				// custom bassline method names through the closing parenthesis, e.g. "lines( 16, 1px )"
-				var regexSplit = new RegExp( "((?:" + escapeRegex( methodNames.join( '|' ) ) + ")\\(.*?\\))", 'g' );
+				var regexSplit = new RegExp( "((?:" + regexMethodNames + ")\\(.*?\\))", 'g' );
 
 				// test entire declaration value for any instance of a bassline method name
 				if ( regexTest.test( decl.value ) ) {
 
-					// split the declaration value using the bassline method names as delimiter
+					// split the declaration value using bassline method names as the delimiter
 					var valueSegments = decl.value.split( regexSplit );
 
 					// iterate over the value segments and compile output for bassline methods
