@@ -1,5 +1,5 @@
 {
-  "name": "bassline",
+  "name": "postcss-bassline",
   "version": "0.1.0",
   "description": "A PostCSS plugin that injects vertical rhythm functions into css",
   "main": "index.js",
