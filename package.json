@@ -1,15 +1,15 @@
 {
   "name": "bassline",
-  "version": "0.0.1",
-  "description": "",
+  "version": "0.1",
+  "description": "A PostCSS plugin that injects vertical rhythm functions into css",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Liam Butterworth <wbbutterworth@gmail.com>",
   "license": "ISC",
-  "devDependencies": {
-    "grunt": "^1.0.1",
-    "grunt-postcss": "^0.9.0"
-  }
+	"repository": {
+		"type": "git",
+		"url": "http://github.com/wbbutterworth/bassline.git"
+	}
 }
