@@ -1,6 +1,6 @@
 # postcss-bassline
 
-A PostCSS plugin for managing vertical rhythm via injected functions
+A PostCSS plugin for managing vertical rhythm with injected functions
 
 ## Installation
 
@@ -15,7 +15,7 @@ module.exports = {
   plugins: [
     require('postcss-bassline')({
       baseFontSize: '16px',
-      baseLineHeiht: '1.25',
+      baseLineHeight: '1.25',
     }),
   ],
 };
@@ -62,7 +62,7 @@ Create a div with a bottom padding and a 5px border that sticks to the vertical 
 
 ```
 div {
-  padding-bottom: 0 0 lines( 4, 5px );
+  padding-bottom: lines( 4, 5px );
   border-bottom: 5px;
 }
 ```
