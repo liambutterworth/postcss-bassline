@@ -12,12 +12,12 @@ $ npm install postcss-bassline --save-dev
 
 ```
 module.exports = {
-	plugins: [
-		require('postcss-bassline')({
-			baseFontSize: '16px',
-			baseLineHeiht: '1.25',
-		}),
-	],
+  plugins: [
+    require('postcss-bassline')({
+      baseFontSize: '16px',
+      baseLineHeiht: '1.25',
+    }),
+  ],
 };
 ```
 
@@ -27,8 +27,8 @@ Set font size and relative line height for `h1` based on the base font size and 
 
 ```
 h1 {
-	font-size: font-size( 48px ); // outputs 1.6875rem
-	line-height: line-height( 48px ); // outputs 
+  font-size: font-size( 48px );
+  line-height: line-height( 48px );
 }
 ```
 
@@ -36,8 +36,8 @@ Outputs:
 
 ```
 h1 {
-	font-size: 1.6875rem;
-	line-height: 1.1852;
+  font-size: 1.6875rem;
+  line-height: 1.1852;
 }
 ```
 
@@ -45,7 +45,7 @@ Use the base font size and line height to defined an image height that will line
 
 ```
 img {
-	height: lines( 10 );
+  height: lines( 10 );
 }
 
 ```
@@ -54,7 +54,7 @@ Outputs:
 
 ```
 img {
-	height: 10rem;
+  height: 10rem;
 }
 ```
 
@@ -62,8 +62,8 @@ Create a div with a bottom padding and a 5px border that sticks to the vertical 
 
 ```
 div {
-	padding-bottom: 0 0 lines( 4, 5px );
-	border-bottom: 5px;
+  padding-bottom: 0 0 lines( 4, 5px );
+  border-bottom: 5px;
 }
 ```
 
@@ -71,7 +71,7 @@ Outputs:
 
 ```
 div {
-	padding-bottom: 3.6875rem
-	border-bottom: 5px;
+  padding-bottom: 3.6875rem
+  border-bottom: 5px;
 }
 ```
