@@ -19,6 +19,9 @@ module.exports = {
 
 ## Functions
 
+
+### Font Size
+
 ```
 font-size( targetFontSize )
 ```
@@ -28,6 +31,8 @@ Returns a calculated `rem` based on `baseFontSize`, `baseLineHeight` and `target
 Params:
 * `targetFontSize` should be a pixel value, e.g. `16px`
 
+### Line Height
+
 ```
 line-height( targetFontSize )
 ```
@@ -36,6 +41,8 @@ returns a line height based on `baseFontSize`, `baseLineHeight` and `targetFontS
 
 Params:
 * `targetFontSize` should be a pixel value, e.g. `16px`
+
+### Lines
 
 ```
 lines( count, subtractPx )
