@@ -26,7 +26,7 @@ module.exports = {
 font-size( targetFontSize )
 ```
 
-Returns a calculated `rem` based on `baseFontSize`, `baseLineHeight` and `targetFontSize`
+Returns a calculated `rem` value based on `baseFontSize`, `baseLineHeight` and `targetFontSize`
 
 Params:
 * `targetFontSize` should be a pixel value, e.g. `16px`
@@ -37,7 +37,7 @@ Params:
 line-height( targetFontSize )
 ```
 
-returns a line height based on `baseFontSize`, `baseLineHeight` and `targetFontSize`
+returns a line height value based on `baseFontSize`, `baseLineHeight` and `targetFontSize`
 
 Params:
 * `targetFontSize` should be a pixel value, e.g. `16px`
@@ -48,18 +48,18 @@ Params:
 lines( count, subtractPx )
 ```
 
-returns an `rem` value based on `baseFontSize` and `baseLineHeight` with an optional pixel value cut out based on `subtractPx`
+returns a `rem` value based on `baseFontSize` and `baseLineHeight` with an optional pixel value cut out based on `subtractPx`
 
 Params:
-* `count` should be an integer defining how many lines you want the value to total
+* `count` should be a number defining how many lines you want the value to total
 * `subtractPx` a pixel value to be subtracted from the returned value
 
 ## Options
 
 Option           | Type    | Default | Description
 ---------------- | ------- | ------- | -----------
-`baseFontSize`   | String  | `16px`  | Font size used to calculate the vertical rhythm, appended with px
-`baseLineHeight` | String  | `1.5`   | Line height used to calculate the vertical rhythm
+`baseFontSize`   | String  | `16px`  | a pixel value used to calculate the vertical rhythm
+`baseLineHeight` | String  | `1.5`   | a number used to how tall a line should be in the vertical rhythm
 
 ## Examples
 
