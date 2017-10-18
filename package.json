@@ -4,12 +4,16 @@
   "description": "A PostCSS plugin that injects vertical rhythm functions into css",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha '*.spec.js' || true"
   },
   "author": "Liam Butterworth <wbbutterworth@gmail.com>",
   "license": "ISC",
-	"repository": {
-		"type": "git",
-		"url": "http://github.com/wbbutterworth/bassline.git"
-	}
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/wbbutterworth/bassline.git"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1"
+  }
 }
