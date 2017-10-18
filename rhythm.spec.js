@@ -10,7 +10,7 @@ describe( 'Rhythm', function() {
 	describe( 'round()', function() {
 		it ( 'should return a number that is no longer than four decimal places', function() {
 			const value = rhythm.round( 0.123456789 ).toString().split( '.' ).pop();
-			assert.lengthOf( value, 4 );
+			assert.isAtMost( value.length, 4 );
 		} );
 	} );
 
