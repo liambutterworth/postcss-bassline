@@ -4,7 +4,7 @@
   "description": "A PostCSS plugin that injects vertical rhythm functions into css",
   "main": "index.js",
   "scripts": {
-    "test": "mocha '*.spec.js' || true"
+    "test": "mocha *.spec.js || true"
   },
   "author": "Liam Butterworth <wbbutterworth@gmail.com>",
   "license": "ISC",
