@@ -28,13 +28,13 @@ module.exports = postcss.plugin( 'bassline', function( options ) {
 		};
 
 		options = Object.assign( {}, defaults, options );
-		var Rhythm = new Rhythm( options );
+		var rhythm = new Rhythm( options );
 
 		css.walkRules( function( rule ) {
 			rule.walkDecls( function( decl, i ) {
 
 				// generate a string of method names to use in regular expressions, e.g. font\-size|line\-height
-				var regexMethodNames = getMethodNames( Rhythm ).join( '|' ).replace( /\-/g, "\\$&" );
+				var regexMethodNames = getMethodNames( rhythm ).join( '|' ).replace( /\-/g, "\\$&" );
 
 				// regular expression for testing declaration for bassline methods
 				var regexTest = new RegExp( regexMethodNames, 'g' );
@@ -56,13 +56,13 @@ module.exports = postcss.plugin( 'bassline', function( options ) {
 						if ( !regexTest.test( segment ) ) return segment;
 
 						// get the method name from segment, e.g. "lines" in "lines( 16, 1px )"
-						var method = Rhythm[ segment.substr( 0, segment.indexOf( '(' ) ) ];
+						var method = rhythm[ segment.substr( 0, segment.indexOf( '(' ) ) ];
 
 						// get array of parameters from the segment, e.g. ['16', '1px'] in "lines( 16, 1px )"
 						var params = getParams( segment );
 
 						// call the method using the parameter array; ensure 'this' is it's parent object
-						return method.apply( Rhythm, params );
+						return method.apply( rhythm, params );
 					} );
 
 					// define new declaration value by joining the compiled segments
