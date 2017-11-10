@@ -81,7 +81,7 @@ h1 {
 }
 ```
 
-Use the base font size and line height to defined an image height that will line up with the vertical rhythm
+Use the base font size and line height to define an image height that will line up with the vertical rhythm
 
 ```
 img {
@@ -92,26 +92,4 @@ img {
 
 Outputs:
 
-```
-img {
-  height: 10rem;
-}
-```
-
-Create a div with a bottom padding and a 5px border that sticks to the vertical rhythm (the 5px will be cut away from the padding rem value)
-
-```
-div {
-  padding-bottom: lines( 4, 5px );
-  border-bottom: 5px;
-}
-```
-
-Outputs:
-
-```
-div {
-  padding-bottom: 3.6875rem
-  border-bottom: 5px;
-}
 ```
