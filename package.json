@@ -10,7 +10,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "http://github.com/wbbutterworth/bassline.git"
+    "url": "http://github.com/wbbutterworth/postcss-bassline.git"
   },
   "devDependencies": {
     "chai": "^4.1.2",
